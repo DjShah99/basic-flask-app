@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: basic-flask-app-deploy
+  name: basic-flask-app-deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: basic-flask-app-deploy
+  template:
+    metadata:
+      labels:
+        app: basic-flask-app-deploy
+    spec:
+      containers:
+      - image: dwijesh123/basic-flask-app:latest
+        name: basic-flask-app
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5000

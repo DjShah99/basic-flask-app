@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: basic-flask-app-svc
+  name: basic-flask-app-svc
+spec:
+  ports:
+  - port: 6000
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app:  basic-flask-app-deploy
+  type: NodePort
